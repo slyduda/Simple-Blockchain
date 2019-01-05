@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Blockchain Management</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
+        crossorigin="anonymous">
+
+    <style>
+
+
+        #header { background:rgb(0, 230, 176);}
+		#header-inner { margin:auto; padding:0px; width:960px; font-size: 24px }
+
+        #top-nav { margin:0 auto; padding:0px 0 0; height:37px; float:right;}
+        #top-nav h1 a, h1 a:hover { color:#009347; text-decoration:none;}
+		#top-nav h1 span { color:#83fdbe;font-size: 64px;} 
+        #top-nav ul { list-style:none; padding:0; height:37px; float:left;}
+        #top-nav ul li { margin:0; padding:0 0 0 8px; float:left;}
+        #top-nav ul li a { display:block; margin:0; padding:8px 20px; color:#005a3a; text-decoration:none;}
+        #top-nav ul li.active a, #top-nav ul li a:hover { color:#0c0063;}
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <header id="header">
+                <div id="top-nav">
+                    <h1><a href="#">z<span>BUX</a></h1>
+                    <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Help</a></li>
+                    </ul>
+                </div>
+                <div class="clr"></div>
+            </div>
+        </header>
+
+        <div class="container">
+            <div class="row mb-3">
+                <div class="col">
+                    <h1>Login</h1>
+                </div>
+            </div>
+            <div v-if="error" class="alert alert-danger" role="alert">
+                {{ error }}
+            </div>
+            <div v-if="success" class="alert alert-success" role="alert">
+                {{ success }}
+            </div>
+            <div class="form-group">
+                <label>Username</label>
+                <input v-model="username" type="text" class="form-control" placeholder="username">
+                <label>Password</label>
+                <input v-model="password" type="password" class="form-control" placeholder="password">
+            </div>
+            <div class="row">
+                <div class="col">
+                    <ul class="list-group">
+                        <button type="submit" @click="onLogin">
+                            Submit
+                        </button>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                username: '',
+                password: '',
+                error: null,
+                success: null,
+            },
+            computed: {
+                loadedData: function () {
+                    if (this.view === 'chain') {
+                        return this.blockchain;
+                    } else {
+                        return this.openTransactions
+                    }
+                }
+            },
+            methods: {
+                onLogin: function () {
+                    // Send Http request to create a new wallet (and return keys)
+                    var vm = this;
+                    axios.post('/login', {username: this.username, password: this.password})
+                        .then(function(response){
+                            vm.error = null;
+                            vm.success = response.data.message;
+                            vm.accountLoading= false;
+                        })
+                        .catch(function(error){
+                            vm.success = null;
+                            vm.error = error.response.data.message;
+                            vm.accountLoading = false;
+                        });
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
