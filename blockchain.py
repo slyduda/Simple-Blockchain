@@ -19,7 +19,7 @@ print(__name__)
 
 
 class Blockchain:
-    """The Blockchain class manages the chain of blocks as well as open transactions and the node on which it's running.
+    """The Blockchain class manages the chain of blocks, trans, and nodes.
 
     Attributes:
         :chain: The list of blocks
@@ -28,8 +28,7 @@ class Blockchain:
     """
 
     def __init__(self, public_key, node_id):
-        """The constructor of the Blockchain class."""
-        # Our starting block for the blockchain
+        # Starting block
         genesis_block = Block(0, '', [], 100, 0)
         # Initializing our (empty) blockchain list
         self.chain = [genesis_block]
