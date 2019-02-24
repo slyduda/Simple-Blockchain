@@ -1,0 +1,1 @@
+PRIVATE_KEY = "a392nfnFjeiw93fnjsvorapoqlvmnsfv489485"
