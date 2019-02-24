@@ -1,14 +1,15 @@
-from flask import Flask, jsonify, request, send_from_directory
+from flask import Flask, jsonify, request, send_from_directory, render_template
 from flask_cors import CORS
 from flask_jwt_extended import (JWTManager, jwt_required, create_access_token, create_refresh_token, jwt_refresh_token_required, get_jwt_identity)
 from flask_restful import reqparse
 
-from wallet import Wallet
-from blockchain import Blockchain
-from security import authenticate, identity
-from user import User, UserLogin
+from backend.wallet import Wallet
+from backend.blockchain import Blockchain
+from backend.security import authenticate, identity
+from backend.user import User, UserLogin
+from utility.custom_flask import CustomFlask
 
-app = Flask(__name__)
+app = CustomFlask(__name__)
 app.secret_key = 'asdfghjkl'
 CORS(app)
 
@@ -64,7 +65,7 @@ def revoked_token_callback():
 
 @app.route('/', methods=['GET'])
 def get_node_ui():
-    return send_from_directory('ui', 'node.html')
+    return render_template('node.html')
 
 
 @app.route('/network', methods=['GET'])
