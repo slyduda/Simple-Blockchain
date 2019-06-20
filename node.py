@@ -8,10 +8,10 @@ from blockchain import Blockchain
 from security import authenticate, identity
 from user import User, UserLogin
 from utility.custom_flask import CustomFlask
-from config.secret import SECRET_KEY
+from config.secret import PRIVATE_KEY
 
 app = CustomFlask(__name__)
-app.secret_key = SECRET_KEY
+app.secret_key = PRIVATE_KEY
 CORS(app)
 
 
@@ -66,17 +66,17 @@ def revoked_token_callback():
 
 @app.route('/', methods=['GET'])
 def get_node_ui():
-    return render_template('node.html')
+    return render_template('index.html')
 
 
-@app.route('/network', methods=['GET'])
-def get_network_ui():
-    return send_from_directory('ui', 'network.html')
+#@app.route('/network', methods=['GET'])
+#def get_network_ui():
+    #return send_from_directory('ui', 'network.html')
 
 
-@app.route('/user', methods=['GET'])
-def get_login_ui():
-    return send_from_directory('ui', 'login.html')
+#@app.route('/user', methods=['GET'])
+#def get_login_ui():
+    #return send_from_directory('ui', 'login.html')
 
 
 @app.route('/register', methods=['POST'])

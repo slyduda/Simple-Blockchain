@@ -1,0 +1,256 @@
+
+.main-hero {
+    position: relative;
+  }
+  
+  .main-hero-background {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+  
+  .main-hero-overlay {
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    height: auto;
+  }
+  
+  .main-hero-panel {
+    background: rgba(255, 255, 255, 0.836);
+    display: inline-block;
+    padding: 2rem;
+    margin: 2rem;
+    width: 500px;
+    height: 460px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .main-hero-panel-cta {
+    color: rgba(0, 0, 0, 0.56);
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    max-width: 90%;
+  }
+  
+  .main-hero-panel-usps {
+    color: rgba(0, 0, 0, 0.56);
+    font-weight: 500;
+    margin-bottom: 0;
+    font-size: 0.8824rem;
+  }
+  
+  .main-hero-panel-usps-dot {
+    margin-left: 0.2rem;
+    margin-right: 0.2rem;
+  }
+  
+  .main-hero-cta {
+    vertical-align: middle;
+    margin-bottom: 1rem;
+  }
+  
+  .main-hero-cta--secondary {
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+    white-space: nowrap;
+    display: inline-block;
+  }
+  
+  .main-hero-panel-main {
+    margin: auto 0;
+  }
+  
+  @media (max-width: 480px) {
+    .main-hero-panel {
+      margin: 0rem;
+    }
+    .main-hero-panel-main {
+      margin: 2rem 0;
+    }
+  }
+  
+  @media (min-width: 1440px) {
+    .main-hero-panel {
+      width: 650px;
+      height: 600px;
+      padding: 3rem;
+      margin-left: 10%;
+    }
+  
+    .main-hero-panel-usps {
+      font-size: 1rem;
+    }
+  
+    .main-hero-panel-usps-dot {
+      margin-left: 0.5rem;
+      margin-right: 0.5rem;
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .main-hero-panel {
+      width: auto;
+      height: auto;
+    }
+  }
+  
+  .main-hero-panel-title {
+    line-height: 3rem;
+    margin: 0;
+  }
+  
+  @media (max-width: 480px) {
+    .main-hero-panel-title {
+      line-height: 2rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .main-hero-panel-cta {
+      max-width: none;
+    }
+    .main-hero-cta {
+      width: 100%;
+    }
+    .main-hero-cta--secondary {
+      text-align: center;
+      margin-left: 0;
+    }
+  }
+  
+  /*ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo*/
+  
+  .button {
+    background-color: rgba(0, 0, 69, 0.05);
+    border: 0;
+    box-sizing: border-box;
+    border-radius: 3px;
+    color: rgba(0, 0, 0, 0.85);
+    cursor: pointer;
+    display: inline-block;
+    font-weight: 500;
+    letter-spacing: 0.01rem;
+    outline: none;
+    padding: 0 1rem;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    text-shadow: none;
+    transition: background-color 0.15s ease-out;
+    height: 2.5rem;
+    line-height: 2.5rem;
+    font-size: 15px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .button:disabled {
+    opacity: 0.3;
+    pointer-events: none;
+  }
+  .button:hover, .button:focus {
+    outline: none;
+    background-color: rgba(0, 0, 18, 0.13);
+  }
+  .button:active {
+    outline: none;
+    background-color: rgba(0, 0, 23, 0.22);
+  }
+  
+  .active { 
+    border-bottom: 5px solid #f25252;
+  }
+  
+  .row-large {height: 50px;}
+  .row-medium {height: 30px;}
+  .row-small {height: 20px;}
+  
+  [class*="col-"] {
+    width: 90%;
+  }
+  
+  @media only screen and (min-width:750px){
+      .col-med-12 {width: 80.00%; *width: 79.99%}
+      .col-med-11 {width: 91.11%; *width: 91.11%}
+      .col-med-10 {width: 82.22%; *width:82.22%}
+      .col-med-9 {width: 73.33%; *width: 73.33%}
+      .col-med-8 {width: 64.44%; *width: 64.44%}
+      .col-med-7 {width: 55.56%; *width: 55.56%}
+      .col-med-6 {width: 46.67%; *width: 46.67%}
+      .col-med-5 {width: 37.78%; *width: 37.78%}
+      .col-med-4 {width: 28.89%; *width: 28.89%}
+      .col-med-3 {width: 20.00%; *width: 20.00%}
+      .col-med-2 {width: 11.11%; *width: 11.11%}
+      .col-med-1 {width: 5.00%; *width: 5.00%}
+  }
+  
+  
+  .padding {
+      position: absolute;
+      padding: 10px;
+      box-sizing: border-box
+  }
+  
+  /* Try to add this to col med later.*/
+  .centered {
+      margin: 0 auto;
+  }
+  
+  .text-large-title {
+      font-size: 32pt;
+      color:#f25252;}
+  .text-med {font-size: 20pt;}
+  
+  input[type=text] {
+      width: 130px;
+      box-sizing: border-box;
+      border: 2px solid #ccc;
+      border-radius: 4px;
+      font-size: 16px;
+      background-color: white;
+      background-image: url('searchicon.png');
+      background-position: 10px 10px; 
+      background-repeat: no-repeat;
+      padding: 8px 20px 8px 40px;
+      font-size: 18pt;
+      -webkit-transition: width 0.4s ease-in-out;
+      transition: width 0.4s ease-in-out;
+  }
+  
+  input[type=text]:focus {
+    width: 100%;
+  }
+  
+  
+  .main-table {
+      border-collapse: collapse;
+      table-layout: auto;
+      width: 100%;
+  }
+  
+  
+  
+  .main-table th {
+      border-bottom: 1px solid rgb(0, 0, 0);
+      font-size: 14px;
+      padding-bottom: .5rem;
+      padding-left: .5rem;
+      padding-right: .5rem;
+      text-align: left;
+  }
+  
+  .main-table th:first-of-type, .main-table td:first-of-type {
+    padding-left: 0;
+  }
+  
+  .main-table th:last-of-type, .main-table td:last-of-type {
+    padding-right: 0;
+  }
+  
+  td {
+      padding: 1.5rem 1rem;
+      border-bottom: 1px solid rgba(0, 0, 28, 0.13);
+  }
